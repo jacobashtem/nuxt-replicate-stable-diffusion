@@ -11,7 +11,6 @@
         class="flex-grow border border-gray-300 p-2 rounded mr-2"
         placeholder="Opisz swój obrazek"
       />
-      <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select an option</label>
       <button :disabled="loading" :class="loading ? 'bg-blue-300' : 'bg-blue-500'" class="text-white py-2 px-4 rounded" type="submit">
         Generuj.
       </button>
