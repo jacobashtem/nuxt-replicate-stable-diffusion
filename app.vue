@@ -1,10 +1,7 @@
 <template>
   <div class="max-w-3xl mx-auto p-5">
     <h1 class="py-6 text-center font-bold text-2xl">
-      Wygeneruj swój obrazek korzystając z modelu
-      <a href="https://replicate.com/stability-ai/sdxl?utm_source=project&utm_project=getting-started">
-        SDXL
-      </a>
+      Wygeneruj swój obrazek korzystając z modelu SDXL
     </h1>
 
     <form class="w-full flex" @submit.prevent="handleSubmit">
