@@ -15,6 +15,9 @@ export default defineNuxtConfig({
       },
     ],
   },
+  netlify: {
+    baseURL: process.env.IMAGE_BASE_URL || 'https://generator-obrazkow-jashtem.netlify.app/',
+  },
   runtimeConfig: {
     public: {
       replicateApiToken: process.env.REPLICATE_API_TOKEN
