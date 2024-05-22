@@ -4,13 +4,14 @@
       Wygeneruj swój obrazek korzystając z modelu SDXL
     </h1>
 
-    <form class="w-full flex" @submit.prevent="handleSubmit">
+    <form class="w-full flex flex-wrap gap-2" @submit.prevent="handleSubmit">
       <input
         v-model="prompt"
         type="text"
         class="flex-grow border border-gray-300 p-2 rounded mr-2"
         placeholder="Opisz swój obrazek"
       />
+      <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select an option</label>
       <button :disabled="loading" :class="loading ? 'bg-blue-300' : 'bg-blue-500'" class="text-white py-2 px-4 rounded" type="submit">
         Generuj.
       </button>
