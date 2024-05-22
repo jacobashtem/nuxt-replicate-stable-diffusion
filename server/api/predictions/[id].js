@@ -2,8 +2,6 @@ import replicate from '~/server/services/replicate';
 
 export default defineEventHandler(async (event) => {
   const id = event.context.params.id;
-  console.log('query', id);
-
   try {
     const prediction = await replicate.predictions.get(id);
 
