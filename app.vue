@@ -20,7 +20,7 @@
     <div v-if="prediction" class="mt-5">
       <div v-if="prediction.output" class="image-wrapper relative w-full" style="aspect-ratio: 1 / 1;">
         <nuxt-img
-          :src="prediction.output[prediction.output.length - 1]"
+          :src="imgSrc"
           alt="output"
           layout="fill"
           object-fit="cover"
@@ -39,6 +39,7 @@ const prompt = ref('');
 const loading = ref(false);
 const prediction = ref(null);
 const error = ref(null);
+const imgSrc = ref('');
 
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 
@@ -58,6 +59,8 @@ const fetchPredictionStatus = async (id) => {
     console.log('statusData', statusData)
 
     if (statusData.status === 'succeeded' || statusData.status === 'failed') {
+      imgSrc.value = prediction.value.output[prediction.value.output.length - 1];
+    console.log('imgSrc', imgSrc.value)
       loading.value = false;
       break;
     }
