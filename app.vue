@@ -4,7 +4,7 @@
       Wygeneruj swój obrazek korzystając z modelu SDXL
     </h1>
 
-    <form class="w-full flex" @submit.prevent="handleSubmit">
+    <form class="w-full flex flex-wrap gap-2" @submit.prevent="handleSubmit">
       <input
         v-model="prompt"
         type="text"
