@@ -11,13 +11,12 @@
         class="flex-grow border border-gray-300 p-2 rounded mr-2"
         placeholder="Opisz swój obrazek"
       />
-      <button :disabled="loading" :class="{'bg-blue-300': loading }" class="bg-blue-500 text-white py-2 px-4 rounded" type="submit">
+      <button :disabled="loading" :class="loading ? 'bg-blue-300' : 'bg-blue-500'" class="text-white py-2 px-4 rounded" type="submit">
         Generuj.
       </button>
     </form>
 
     <div v-if="error" class="text-red-500 mt-2">{{ error }}</div>
-
     <div v-if="prediction" class="mt-5">
       <div v-if="prediction.output" class="image-wrapper relative w-full" style="aspect-ratio: 1 / 1;">
         <nuxt-img
@@ -27,6 +26,7 @@
           object-fit="cover"
         />
       </div>
+
       <p class="py-3 text-sm opacity-50">Musisz chwilę poczekać. Obecny status: {{ prediction.status }}.</p>
     </div>
   </div>
@@ -55,6 +55,7 @@ const fetchPredictionStatus = async (id) => {
     }
 
     prediction.value = statusData;
+    console.log('statusData', statusData)
 
     if (statusData.status === 'succeeded' || statusData.status === 'failed') {
       loading.value = false;
