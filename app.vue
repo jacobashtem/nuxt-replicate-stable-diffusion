@@ -19,7 +19,7 @@
     <div v-if="error" class="text-red-500 mt-2">{{ error }}</div>
     <div v-if="prediction" class="mt-5">
       <div v-if="prediction.output" class="image-wrapper relative w-full" style="aspect-ratio: 1 / 1;">
-        <nuxt-img
+        <img
           :src="imgSrc"
           alt="output"
           layout="fill"
@@ -27,7 +27,7 @@
         />
       </div>
 
-      <p class="py-3 text-sm opacity-50">Musisz chwilę poczekać. Obecny status: {{ prediction.status }}.</p>
+      <p v-if="loading" class="py-3 text-sm opacity-50">Musisz chwilę poczekać. Obecny status: {{ prediction.status }}.</p>
     </div>
   </div>
 </template>
